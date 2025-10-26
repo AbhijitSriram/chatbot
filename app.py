@@ -1,17 +1,14 @@
 import streamlit as st
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-from langchain_chroma import Chroma
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from typing import List, Dict
-from langchain_openai import ChatOpenAI
-from langchain_core.runnables import RunnableWithMessageHistory
-from langchain_community.document_transformers import LongContextReorder
-from langchain_core.documents import Document
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+import os
+
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import HumanMessage, AIMessage
 from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_openai import ChatOpenAI
+from langchain_community.vectorstores import Chroma
 import os
 from dotenv import load_dotenv
 
