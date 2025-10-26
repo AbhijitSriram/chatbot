@@ -73,8 +73,11 @@ hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN") or (
 if hf_token:
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = hf_token
 
-# Initialize embeddings
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+# Initialize embeddings with explicit CPU configuration
+embeddings = HuggingFaceEmbeddings(
+    model_name="all-MiniLM-L6-v2",
+    model_kwargs={'device': 'cpu'}
+)
 
 # Add a button to reset API key if needed
 if st.session_state.api_key_valid:

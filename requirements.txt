@@ -8,3 +8,6 @@ langchain_core
 sentence_transformers
 pypdf
 openai
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+transformers
